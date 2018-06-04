@@ -5566,12 +5566,12 @@ blocks of the block library Modelica.Blocks.Sources.
               fillPattern=FillPattern.Solid,
               textString="phi"),Text(
               visible=use_w or use_a,
-              extent={{-20,40},{20,18}},
+              extent={{-20,62},{20,40}},
               fillPattern=FillPattern.Solid,
               textString="w"),
             Text(
               visible=use_a,
-              extent={{-20,-20},{20,-42}},
+              extent={{-20,32},{20,10}},
               fillPattern=FillPattern.Solid,
               textString="a"),
             Text(
@@ -5666,12 +5666,12 @@ torque as output signal. Note, the input signals must be consistent to each othe
               textString="phi"),
             Text(
               visible=use_w,
-              extent={{-20,42},{20,20}},
+              extent={{-20,62},{20,40}},
               fillPattern=FillPattern.Solid,
               textString="w"),
             Text(
               visible=use_a,
-              extent={{-20,-18},{20,-40}},
+              extent={{-20,32},{20,10}},
               fillPattern=FillPattern.Solid,
               textString="a"),
             Text(
