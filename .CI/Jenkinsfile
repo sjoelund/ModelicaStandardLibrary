@@ -47,7 +47,7 @@ pipeline {
 
 def autotools(CC) {
   sh """
-  echo $CC
+  export CC=$CC
   rm -rf Modelica/Resources/Library/*
   mkdir -p Modelica/Resources/Library/\$LIBDIR
   cd Modelica/Resources/BuildProjects/autotools
