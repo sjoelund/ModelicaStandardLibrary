@@ -53,6 +53,7 @@ def autotools(CC) {
   rm -rf Modelica/Resources/Library/*
   mkdir -p Modelica/Resources/Library/\$LIBDIR
   cd Modelica/Resources/BuildProjects/autotools
+  git clean -fdx .
   ./autogen.sh
   ./configure --prefix="\$PWD/../../Library/\$LIBDIR"
   make --output-sync -j4
