@@ -6,7 +6,7 @@ pipeline {
   stages {
     stage('build') {
       parallel {
-        stage('autotools amd64') {
+        stage('amd64') {
           agent {
             docker {
               image 'modelicastandardlibrary/build-deps:amd64-20190513'
@@ -14,19 +14,25 @@ pipeline {
               alwaysPull true
             }
           }
+          environment {
+            LIBDIR = "linux64"
+          }
           steps {
             autotools('gcc-4.8')
             autotools('gcc-5')
             autotools('clang-8')
           }
         }
-        stage('autotools i386') {
+        stage('i386') {
           agent {
             docker {
               image 'modelicastandardlibrary/build-deps:i386-20190513'
               label 'linux'
               alwaysPull true
             }
+          }
+          environment {
+            LIBDIR = "linux32"
           }
           steps {
             autotools('gcc-4.8')
@@ -42,10 +48,11 @@ pipeline {
 def autotools(CC) {
   sh """
   echo $CC
-  rm -f Modelica/Resources/Library/*
+  rm -rf Modelica/Resources/Library/*
+  mkdir -p Modelica/Resources/Library/\$LIBDIR
   cd Modelica/Resources/BuildProjects/autotools
   ./autogen.sh
-  ./configure --prefix="\$PWD/../../Library/linux64"
+  ./configure --prefix="\$PWD/../../Library/\$LIBDIR"
   make --output-sync -j4
   make install
   """
