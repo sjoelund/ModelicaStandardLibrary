@@ -19,9 +19,7 @@ pipeline {
           }
           steps {
             sh 'hostname'
-            autotools('gcc-4.8')
-            autotools('gcc-5')
-            autotools('clang-7')
+            allAutotools()
           }
         }
         stage('i386') {
@@ -37,13 +35,17 @@ pipeline {
           }
           steps {
             sh 'hostname'
-            autotools('gcc-4.8')
-            autotools('gcc-5')
-            autotools('clang-7')
+            allAutotools()
           }
         }
       }
     }
+  }
+}
+
+def allAutotools() {
+  for (String CC in ["gcc-4.8", "gcc-5", "gcc-6", "gcc-7", "gcc-8", "clang-3.9", "clang-4.0", "clang-5.0", "clang-6.0", "clang-7"]) {
+    autotools(CC)
   }
 }
 
