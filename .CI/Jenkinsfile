@@ -45,13 +45,16 @@ pipeline {
 
 def allAutotools() {
   for (String CC in ["gcc-4.8", "gcc-5", "gcc-6", "gcc-7", "gcc-8", "clang-3.9", "clang-4.0", "clang-5.0", "clang-6.0", "clang-7"]) {
-    autotools(CC)
+    for (String CPPFLAGS in ["", "-DNO_FILE_SYSTEM", "-DTABLE_SHARE", "-DNO_LOCALE", "-DNO_MUTEX"]) {
+      autotools(CC, CPPFLAGS)
+    }
   }
 }
 
-def autotools(CC) {
+def autotools(CC, CPPFLAGS) {
   sh """
   export CC=$CC
+  export CPPFLAGS=$CPPFLAGS
   export CFLAGS=-Os
   rm -rf Modelica/Resources/Library/*
   mkdir -p Modelica/Resources/Library/\$LIBDIR
