@@ -21,7 +21,7 @@ pipeline {
             sh 'hostname'
             autotools('gcc-4.8')
             autotools('gcc-5')
-            autotools('clang-8')
+            autotools('clang-7')
           }
         }
         stage('i386') {
@@ -39,7 +39,7 @@ pipeline {
             sh 'hostname'
             autotools('gcc-4.8')
             autotools('gcc-5')
-            autotools('clang-8')
+            autotools('clang-7')
           }
         }
       }
