@@ -50,6 +50,7 @@ pipeline {
 def autotools(CC) {
   sh """
   export CC=$CC
+  export CFLAGS=-Os
   rm -rf Modelica/Resources/Library/*
   mkdir -p Modelica/Resources/Library/\$LIBDIR
   cd Modelica/Resources/BuildProjects/autotools
