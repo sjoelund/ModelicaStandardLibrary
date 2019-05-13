@@ -20,19 +20,19 @@ pipeline {
             autotools('clang-8')
           }
         }
-      }
-      stage('autotools i386') {
-        agent {
-          docker {
-            image 'modelicastandardlibrary/build-deps:i386-20190513'
-            label 'linux'
-            alwaysPull true
+        stage('autotools i386') {
+          agent {
+            docker {
+              image 'modelicastandardlibrary/build-deps:i386-20190513'
+              label 'linux'
+              alwaysPull true
+            }
           }
-        }
-        steps {
-          autotools('gcc-4.8')
-          autotools('gcc-5')
-          autotools('clang-8')
+          steps {
+            autotools('gcc-4.8')
+            autotools('gcc-5')
+            autotools('clang-8')
+          }
         }
       }
     }
