@@ -55,7 +55,7 @@ def autotools(CC) {
   cd Modelica/Resources/BuildProjects/autotools
   git clean -fdx .
   ./autogen.sh
-  ./configure --prefix="\$PWD/../../Library/\$LIBDIR"
+  ./configure --libdir="\$PWD/../../Library/\$LIBDIR"
   make --output-sync -j4
   make install
   """
