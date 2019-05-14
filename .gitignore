@@ -31,3 +31,4 @@ Modelica/Resources/BuildProjects/autotools/compile
 autom4te.cache
 *.lo
 .dirstamp
+*.o
