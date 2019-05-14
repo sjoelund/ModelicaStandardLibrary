@@ -13,13 +13,21 @@ char* ModelicaAllocateStringWithErrorReturn(size_t len) {
 }
 
 void ModelicaFormatError(const char *string, ...) {
-  assert(0);
+  va_list args;
+  va_start(args, string);
+  ModelicaVFormatError(string, args);
+  va_end(args);
 }
 
 void ModelicaFormatMessage(const char *string, ...) {
+  va_list args;
+  va_start(args, string);
+  ModelicaVFormatMessage(string, args);
+  va_end(args);
 }
 
 void ModelicaVFormatMessage(const char *string, va_list args) {
+  vprintf(string, args);
 }
 
 void ModelicaError(const char *string) {
@@ -29,5 +37,6 @@ void ModelicaError(const char *string) {
 }
 
 void ModelicaVFormatError(const char *string, va_list args) {
+  vfprintf(stderr, string, args);
   assert(0);
 }

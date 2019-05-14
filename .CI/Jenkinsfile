@@ -62,8 +62,12 @@ def autotools(CC, CPPFLAGS) {
   cd Modelica/Resources/BuildProjects/autotools
   git clean -fdx .
   ./autogen.sh
-  ./configure --libdir="\$PWD/../../Library/\$LIBDIR"
+  ./configure --libdir="\$PWD/../../Library/\$LIBDIR" --enable-static --enable-shared
   make --output-sync -j4
   make install
+  """
+  sh """
+  cd Modelica/Resources/Test
+  ./test.sh
   """
 }
