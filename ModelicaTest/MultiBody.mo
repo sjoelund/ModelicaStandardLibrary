@@ -7391,7 +7391,7 @@ often possible to use the FreeMotion joint such that the singularity
         sphereDiameter=0.1,
         r_0(start={0.2,-0.5,0.1}, each fixed=true),
         v_0(each fixed=true),
-        stateSelect=StateSelect.never) annotation (Placement(transformation(
+        stateSelect=StateSelect.avoid) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=-90,
             origin={30,-30})));
