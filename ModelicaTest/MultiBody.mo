@@ -7459,7 +7459,6 @@ often possible to use the FreeMotion joint such that the singularity
           color={95,95,95},
           thickness=0.5));
       annotation (experiment(StopTime=10), Documentation(info="<html>
-<p>This test case is made with the intent of verifying what choices are made by the compiler in terms of state selection when wrong indications are given, here all the bodies have the flag enforceStates=false but the bodies positions and velocities are the only possible states.</p>
 <p>This test case is made with the intent of verifying what choices are made by the compiler in terms of state selection when wrong hints are given, here all the bodies have the flag enforceStates=false (or stateSelect=stateSelect.avoid) but the bodies positions and velocities are the only possible states.</p>
 </html>"));
     end FreeBodiesEnforceStatesFalse;
